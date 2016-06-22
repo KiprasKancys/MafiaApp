@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Mafia</string>
+    <string name="create_game">Create game</string>
+    <string name="description">Logo</string>
 </resources>

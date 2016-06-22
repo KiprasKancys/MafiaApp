@@ -1,9 +1,9 @@
-package com.example.kipras.newmafija;
+package com.example.kipras.newmafija.model;
 
 import java.io.Serializable;
 
 /**
- * Created by Kipras on 2016.06.13.
+ * Player class
  */
 public class Player implements Serializable {
 

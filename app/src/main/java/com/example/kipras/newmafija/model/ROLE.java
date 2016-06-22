@@ -1,7 +1,7 @@
-package com.example.kipras.newmafija;
+package com.example.kipras.newmafija.model;
 
 /**
- * Created by Kipras on 2016.06.13.
+ * Role enum
  */
 public enum ROLE {
     Mafija, Policininkas, Sesele, Plastake, Miestietis

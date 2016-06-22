@@ -1,4 +1,4 @@
-package com.example.kipras.newmafija;
+package com.example.kipras.newmafija.app;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,10 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.kipras.newmafija.R;
+import com.example.kipras.newmafija.model.ROLE;
+import com.example.kipras.newmafija.model.Player;
+
 import java.util.ArrayList;
 
 /**
- * Created by Kipras on 2016.06.15.
+ * Report after day
  */
 public class ReportDay extends AppCompatActivity {
 

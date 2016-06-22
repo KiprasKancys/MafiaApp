@@ -8,18 +8,18 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StartPage">
+        <activity android:name=".app.StartPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateGame"/>
-        <activity android:name=".Game"/>
-        <activity android:name=".Night"/>
-        <activity android:name=".ReportNight"/>
-        <activity android:name=".Day"/>
-        <activity android:name=".ReportDay"/>
+        <activity android:name=".app.CreateGame"/>
+        <activity android:name=".app.Game"/>
+        <activity android:name=".app.Night"/>
+        <activity android:name=".app.ReportNight"/>
+        <activity android:name=".app.Day"/>
+        <activity android:name=".app.ReportDay"/>
 
     </application>
 

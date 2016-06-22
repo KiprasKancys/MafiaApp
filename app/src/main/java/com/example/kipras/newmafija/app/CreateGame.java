@@ -1,4 +1,4 @@
-package com.example.kipras.newmafija;
+package com.example.kipras.newmafija.app;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,12 +10,14 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.kipras.newmafija.R;
+
 import java.util.ArrayList;
 
 public class CreateGame extends AppCompatActivity {
 
     Button addPlayer;
-    ArrayList<String> players = new ArrayList<String>();
+    ArrayList<String> players = new ArrayList<>();
     EditText player;
     ListView showPlayers;
 
@@ -36,12 +38,12 @@ public class CreateGame extends AppCompatActivity {
                 if(players.contains(getInput)){
                     Toast.makeText(getBaseContext(), "Player exists", Toast.LENGTH_LONG).show();
                 }
-                else if(getInput == null || getInput.trim().equals("")){
+                else if(getInput.trim().equals("")){
                     Toast.makeText(getBaseContext(), "Input field is empty", Toast.LENGTH_LONG).show();
                 }
                 else {
                     players.add(getInput);
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(CreateGame.this, android.R.layout.simple_list_item_1, players);
+                    ArrayAdapter<String> adapter = new ArrayAdapter<>(CreateGame.this, android.R.layout.simple_list_item_1, players);
                     showPlayers.setAdapter(adapter);
                     ((EditText) findViewById(R.id.input)).setText("");
                 }

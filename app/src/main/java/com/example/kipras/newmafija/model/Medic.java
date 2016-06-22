@@ -1,8 +1,5 @@
-package com.example.kipras.newmafija;
+package com.example.kipras.newmafija.model;
 
-/**
- * Created by Kipras on 2016.06.15.
- */
 public class Medic extends Player {
 
     private boolean medicHeal;

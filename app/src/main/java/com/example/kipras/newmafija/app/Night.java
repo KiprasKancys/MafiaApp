@@ -1,4 +1,4 @@
-package com.example.kipras.newmafija;
+package com.example.kipras.newmafija.app;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,10 +10,15 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.kipras.newmafija.model.Player;
+import com.example.kipras.newmafija.R;
+import com.example.kipras.newmafija.model.ROLE;
+import com.example.kipras.newmafija.model.Medic;
+
 import java.util.ArrayList;
 
 /**
- * Created by Kipras on 2016.06.13.
+ * Night activity
  */
 public class Night extends AppCompatActivity {
 
@@ -22,7 +27,7 @@ public class Night extends AppCompatActivity {
 
     Button show;
     Button activity;
-    ArrayList<String> listOfPlayerNames = new ArrayList<String>();
+    ArrayList<String> listOfPlayerNames = new ArrayList<>();
     TextView name;
     TextView role;
     ListView playersList;
@@ -64,7 +69,7 @@ public class Night extends AppCompatActivity {
 
                     getShowPlayers(currentRole, players.get(cursor).getName());
 
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(Night.this, android.R.layout.simple_list_item_single_choice, listOfPlayerNames);
+                    ArrayAdapter<String> adapter = new ArrayAdapter<>(Night.this, android.R.layout.simple_list_item_single_choice, listOfPlayerNames);
                     playersList.setAdapter(adapter);
 
                     activity.setVisibility(View.VISIBLE);

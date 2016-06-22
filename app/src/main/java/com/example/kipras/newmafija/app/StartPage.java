@@ -1,9 +1,12 @@
-package com.example.kipras.newmafija;
+package com.example.kipras.newmafija.app;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import com.example.kipras.newmafija.R;
+import com.example.kipras.newmafija.app.CreateGame;
 
 public class StartPage extends AppCompatActivity {
 

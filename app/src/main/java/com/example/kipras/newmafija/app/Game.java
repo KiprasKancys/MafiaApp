@@ -1,21 +1,23 @@
-package com.example.kipras.newmafija;
+package com.example.kipras.newmafija.app;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
+
+import com.example.kipras.newmafija.model.Medic;
+import com.example.kipras.newmafija.model.Player;
+import com.example.kipras.newmafija.model.ROLE;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import java.util.Collections;
 
 /**
- * Created by Kipras on 2016.06.13.
+ * Game initialization
  */
 public class Game extends AppCompatActivity {
 
-    ArrayList<Player> players = new ArrayList<Player>();
+    ArrayList<Player> players = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +52,7 @@ public class Game extends AppCompatActivity {
 
     private ArrayList<ROLE> pickRoles(int numberOfPlayers, int numberOfMafia, int numberOfPolice, int numberOfMedics) {
 
-        ArrayList<ROLE> roles = new ArrayList<ROLE>();
+        ArrayList<ROLE> roles = new ArrayList<>();
 
         int counter = 0;
 
