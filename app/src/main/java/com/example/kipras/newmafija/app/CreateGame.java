@@ -36,7 +36,7 @@ public class CreateGame extends AppCompatActivity {
                 String getInput = player.getText().toString();
 
                 if(players.contains(getInput)){
-                    Toast.makeText(getBaseContext(), "Player exists", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), "Player already exists", Toast.LENGTH_LONG).show();
                 }
                 else if(getInput.trim().equals("")){
                     Toast.makeText(getBaseContext(), "Input field is empty", Toast.LENGTH_LONG).show();
