@@ -7,20 +7,20 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/input"
-        android:textSize="24dp"/>
+        android:hint="@string/name"
+        android:id="@+id/input"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add"
+        android:text="@string/add"
         android:id="@+id/addPlayer" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="List of players:"
+        android:text="@string/listOfPlayers"
         android:id="@+id/hmm" />
 
     <ListView
@@ -40,7 +40,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Next"
+            android:text="@string/next"
             android:id="@+id/Done"
             android:onClick="createGame" />
 

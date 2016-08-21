@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
-
+    android:layout_height="match_parent">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Name"
         android:id="@+id/name" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Show"
+        android:text="@string/show"
         android:id="@+id/show" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Your role is "
+        android:text="@string/yourRole"
         android:id="@+id/role" />
 
     <ListView
@@ -41,7 +38,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Next"
+            android:text="@string/next"
             android:id="@+id/activity"
             android:visibility="invisible"
             android:onClick="next"/>
