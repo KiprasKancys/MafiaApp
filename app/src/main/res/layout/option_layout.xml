@@ -6,27 +6,42 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="aaaas"
         android:id="@+id/role"/>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/plus"
-        android:id="@+id/plus"
-        android:onClick="increase"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:gravity="left"
+        android:orientation="horizontal" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/number"/>
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/plus"
+            android:id="@+id/plus"
+            android:onClick="increase"/>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/minus"
-        android:id="@+id/minus"
-        android:onClick="decrease"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="number"
+            android:id="@+id/number"
+            android:layout_alignBottom="@+id/minus"
+            android:layout_toLeftOf="@+id/minus"
+            android:layout_toStartOf="@+id/minus" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/minus"
+            android:layout_alignParentRight="true"
+            android:id="@+id/minus"
+            android:onClick="decrease"/>
+
+    </RelativeLayout>
 
 </LinearLayout>

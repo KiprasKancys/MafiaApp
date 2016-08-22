@@ -114,23 +114,23 @@ public class Night extends AppCompatActivity {
         switch (role)
         {
             case Mafija:
-                activity.setText("Kill");
+                activity.setText(R.string.kill);
                 mafiaActivity(player);
                 break;
             case Policininkas:
-                activity.setText("Investigate");
+                activity.setText(R.string.investigate);
                 policeActivity(player);
                 break;
             case Sesele:
-                activity.setText("Heal");
+                activity.setText(R.string.heal);
                 medicActivity(role, player);
                 break;
             case Plastake:
-                activity.setText("Ding dong");
+                activity.setText(R.string.dingdong);
                 ButterflyActivity(player);
                 break;
             case Miestietis:
-                activity.setText("Next");
+                activity.setText(R.string.next);
                 break;
         }
     }

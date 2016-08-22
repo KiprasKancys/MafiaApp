@@ -37,7 +37,7 @@ public class ReportDay extends AppCompatActivity {
         } else {
             cleanUp();
             Button next = (Button)findViewById(R.id.button);
-            next.setText("Next");
+            next.setText(R.string.next);
         }
 
     }
