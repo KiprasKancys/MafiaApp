@@ -10,13 +10,14 @@
     <string name="add">Add</string>
     <string name="create_game">Create game</string>
     <string name="vote">Vote</string>
-    <string name="show">Show</string>
+    <string name="show">Show my role</string>
     <string name="kill">Kill</string>
     <string name="investigate">Investigate</string>
     <string name="heal">Heal</string>
     <string name="ding">DingDong</string>
+    <string name="hug">Hug</string>
 
-    <string name="listOfPlayers">List of Players</string>
+    <string name="listOfPlayers">List of players:</string>
     <string name="yourRole">Your role is </string>
     <string name="voteFor">Vote:</string>
 </resources>

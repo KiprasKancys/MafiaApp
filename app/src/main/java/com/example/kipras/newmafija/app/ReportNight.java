@@ -70,13 +70,13 @@ public class ReportNight extends AppCompatActivity {
         if (mafia == 0){
             findViewById(R.id.button2).setVisibility(View.INVISIBLE);
             findViewById(R.id.button).setVisibility(View.VISIBLE);
-            return("Villagers wins");
+            return("Villagers win.");
         }
 
         if(other == 0 || mafia == other){
             findViewById(R.id.button2).setVisibility(View.INVISIBLE);
             findViewById(R.id.button).setVisibility(View.VISIBLE);
-            return("Mafia wins");
+            return("Mafia win.");
         }
 
         return "";
@@ -86,26 +86,26 @@ public class ReportNight extends AppCompatActivity {
         for(int i = 0; i < players.size(); i++){
             if(players.get(i).isAttempted() && !players.get(i).isHealed()){
                 players.get(i).setLife(false);
-                return "Died " + players.get(i).getName() + ". The role was " +
+                return players.get(i).getName() + " died. His/her role was " +
                         players.get(i).getRole().toString() ;
             }
         }
-        return "Nobody died";
+        return "Nobody died.";
     }
 
     private String policeWereRight(){
         for(int i = 0; i < players.size(); i++){
             if(players.get(i).isGuessed() && players.get(i).getRole().equals(ROLE.Mafia)){
-                return("Police guessed right");
+                return("Police guessed right.");
             }
         }
-        return "Police guessed wrong";
+        return "Police guessed wrong.";
     }
 
     private String whoWasSilenced(){
         for(int i = 0; i < players.size(); i++){
             if(players.get(i).isSilenced()){
-                return(players.get(i).getName() + " is silenced");
+                return(players.get(i).getName() + " is silenced.");
             }
         }
         return "";

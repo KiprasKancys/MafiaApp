@@ -60,18 +60,15 @@ public class ReportDay extends AppCompatActivity {
         if (mafia == 0){
             findViewById(R.id.button2).setVisibility(View.INVISIBLE);
             findViewById(R.id.button).setVisibility(View.VISIBLE);
-            return("Villagers wins");
+            return("Villagers win.");
         }
 
         if(other == 0 || mafia == other){
             findViewById(R.id.button2).setVisibility(View.INVISIBLE);
             findViewById(R.id.button).setVisibility(View.VISIBLE);
-            return("Mafia wins");
-
+            return("Mafia win.");
         }
-
         return "";
-
     }
 
     private String whoWasKilled(){
@@ -96,10 +93,10 @@ public class ReportDay extends AppCompatActivity {
 
         if(count == 1){
             players.get(candidate).setLife(false);
-            return "Died " + players.get(candidate).getName() + ". The role was " +
+            return players.get(candidate).getName() + " died. His/her role was " +
                     players.get(candidate).getRole().toString();
         } else {
-            return "Nobody died";
+            return "Nobody died.";
         }
 
     }

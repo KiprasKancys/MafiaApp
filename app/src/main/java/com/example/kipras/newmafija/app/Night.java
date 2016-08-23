@@ -44,7 +44,6 @@ public class Night extends AppCompatActivity {
         players = (ArrayList<Player>) getIntent().getSerializableExtra("ListOfPlayers");
         cursor = getIntent().getExtras().getInt("Cursor");
 
-
         name = (TextView)findViewById(R.id.name);
         name.setText(players.get(cursor).getName());
 
@@ -53,38 +52,28 @@ public class Night extends AppCompatActivity {
         show = (Button)findViewById(R.id.show);
         activity = (Button)findViewById(R.id.activity);
 
-
         show.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
                 if(!clicked){
-
                     clicked = true;
-
                     currentRole = players.get(cursor).getRole();
-
                     role.append(currentRole.toString());
-
                     getShowPlayers(currentRole, players.get(cursor).getName());
-
                     ArrayAdapter<String> adapter = new ArrayAdapter<>(Night.this, android.R.layout.simple_list_item_single_choice, listOfPlayerNames);
                     playersList.setAdapter(adapter);
-
                     activity.setVisibility(View.VISIBLE);
-
+                    changeActionButton(currentRole);
                     playersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                             String targetName = ((TextView) view).getText().toString();
-
                             activities(currentRole, getPlayerByName(targetName));
-
                         }
                     });
-                }
 
+                }
             }
         });
     }
@@ -110,27 +99,43 @@ public class Night extends AppCompatActivity {
         }
     }
 
-    private void activities(ROLE role, Player player) {
+    private void changeActionButton(ROLE role){
         switch (role)
         {
             case Mafia:
                 activity.setText(R.string.kill);
-                mafiaActivity(player);
                 break;
             case Police:
                 activity.setText(R.string.investigate);
-                policeActivity(player);
                 break;
             case Medic:
                 activity.setText(R.string.heal);
-                medicActivity(role, player);
                 break;
             case Butterfly:
                 activity.setText(R.string.ding);
+                break;
+            case Villager:
+                activity.setText(R.string.hug);
+                break;
+        }
+    }
+
+    private void activities(ROLE role, Player player) {
+        switch (role)
+        {
+            case Mafia:
+                mafiaActivity(player);
+                break;
+            case Police:
+                policeActivity(player);
+                break;
+            case Medic:
+                medicActivity(role, player);
+                break;
+            case Butterfly:
                 ButterflyActivity(player);
                 break;
             case Villager:
-                activity.setText(R.string.next);
                 break;
         }
     }
