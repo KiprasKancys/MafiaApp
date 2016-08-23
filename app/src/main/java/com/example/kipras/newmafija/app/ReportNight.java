@@ -30,14 +30,14 @@ public class ReportNight extends AppCompatActivity {
         killed.setText(whoWasKilled());
 
         for(int i = 0; i < players.size(); i++){
-            if(players.get(i).getRole().equals(ROLE.Policininkas) && players.get(i).isAlive()){
+            if(players.get(i).getRole().equals(ROLE.Police) && players.get(i).isAlive()){
                 TextView police = (TextView)findViewById(R.id.info2);
                 police.setText(policeWereRight());
             }
         }
 
         for(int i = 0; i < players.size(); i++){
-            if(players.get(i).getRole().equals(ROLE.Plastake) && players.get(i).isAlive()){
+            if(players.get(i).getRole().equals(ROLE.Butterfly) && players.get(i).isAlive()){
                 TextView butterfly = (TextView)findViewById(R.id.info3);
                 butterfly.setText(whoWasSilenced());
             }
@@ -59,7 +59,7 @@ public class ReportNight extends AppCompatActivity {
 
         for(int i = 0; i < players.size(); i++){
             if(players.get(i).isAlive()){
-                if(players.get(i).getRole().equals(ROLE.Mafija)){
+                if(players.get(i).getRole().equals(ROLE.Mafia)){
                     mafia++;
                 } else {
                     other++;
@@ -95,7 +95,7 @@ public class ReportNight extends AppCompatActivity {
 
     private String policeWereRight(){
         for(int i = 0; i < players.size(); i++){
-            if(players.get(i).isGuessed() && players.get(i).getRole().equals(ROLE.Mafija)){
+            if(players.get(i).isGuessed() && players.get(i).getRole().equals(ROLE.Mafia)){
                 return("Police guessed right");
             }
         }

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.kipras.newmafija.R;
 import com.example.kipras.newmafija.model.Medic;
@@ -27,6 +28,7 @@ public class Game extends AppCompatActivity {
     int numberOfPlayers;
     List<Options> opts;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,9 +37,8 @@ public class Game extends AppCompatActivity {
         playerNames = (ArrayList<String>) getIntent().getSerializableExtra("ListOfPlayers");
         numberOfPlayers = playerNames.size();
         opts = prepOptimalOptions(numberOfPlayers);
-
-        ListView listView = (ListView)findViewById(R.id.listView);
         OptionsAdapter optionsAdapter = new OptionsAdapter(this, R.layout.option_layout, opts);
+        ListView listView = (ListView)findViewById(R.id.listView);
         listView.setAdapter(optionsAdapter);
 
     }
@@ -48,28 +49,28 @@ public class Game extends AppCompatActivity {
         for (ROLE role: ROLE.values()){
             switch (role)
             {
-                case Mafija:
+                case Mafia:
                     numberOfThisRole = numberOfPlayers / 5;
                     if (numberOfThisRole < 1) {
                         numberOfThisRole++;
                     }
                     break;
-                case Policininkas:
+                case Police:
                     numberOfThisRole = numberOfPlayers / 5;
                     if (numberOfThisRole < 1) {
                         numberOfThisRole++;
                     }
                     break;
-                case Sesele:
+                case Medic:
                     numberOfThisRole = numberOfPlayers / 6;
                     if (numberOfThisRole < 1) {
                         numberOfThisRole++;
                     }
                     break;
-                case Plastake:
+                case Butterfly:
                     numberOfThisRole = numberOfPlayers / 7;
                     break;
-                case Miestietis:
+                case Villager:
                     int sumOfRolesInGame = 0;
                     for (Options op: options){
                         sumOfRolesInGame += Integer.parseInt(op.getNumber());
@@ -85,23 +86,62 @@ public class Game extends AppCompatActivity {
     }
 
     public void increase(View v) {
-        TextView number = (TextView) findViewById(R.id.number);
+        TextView number = (TextView) ((View) v.getParent()).findViewById(R.id.number);
         String str = number.getText().toString();
         int num = Integer.valueOf(str);
         num++;
-        number.setText(Integer.toString(num));
+        if (num > numberOfPlayers){
+            Toast.makeText(getBaseContext(), "Too many", Toast.LENGTH_LONG).show();
+        } else {
+            number.setText(Integer.toString(num));
+            TextView role = (TextView) ((View) v.getParent()).findViewById(R.id.role);
+            String s = role.getText().toString();
+            for (Options op: opts){
+                if(op.getRole().equals(s)){
+                    op.setNumber(num);
+                }
+            }
+        }
     }
 
     public void decrease(View v) {
-        TextView number = (TextView)findViewById(R.id.number);
+        TextView number = (TextView) ((View) v.getParent()).findViewById(R.id.number);
         String str = number.getText().toString();
         int num = Integer.parseInt(str);
-        num--;
-        number.setText(Integer.toString(num));
+        if (num > 0){
+            num--;
+            number.setText(Integer.toString(num));
+            TextView role = (TextView) ((View) v.getParent()).findViewById(R.id.role);
+            String s = role.getText().toString();
+            for (Options op: opts){
+                if(op.getRole().equals(s)){
+                    op.setNumber(num);
+                }
+            }
+        }
     }
 
     public void done(View view) {
-        assignRoles();
+        checkNumberOfRoles();
+    }
+
+    private void checkNumberOfRoles(){
+
+        int counter = 0;
+
+        for (Options op: opts){
+            counter += Integer.valueOf(op.getNumber());
+        }
+
+        if(counter == numberOfPlayers){
+            assignRoles();
+        } else {
+            if(counter > numberOfPlayers){
+                Toast.makeText(getBaseContext(), "Too many roles", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(getBaseContext(), "Not enough roles", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
     private void assignRoles(){
@@ -116,7 +156,7 @@ public class Game extends AppCompatActivity {
 
         Player player;
         for(int i = 0; i < numberOfPlayers; i++) {
-            if (roles.get(i).equals(ROLE.Sesele)){
+            if (roles.get(i).equals(ROLE.Medic)){
                 player = new Medic(playerNames.get(i), roles.get(i));
             } else {
                 player = new Player(playerNames.get(i), roles.get(i));
@@ -138,29 +178,29 @@ public class Game extends AppCompatActivity {
         int counter = 0;
 
         for (int i=0; i < numberOfMafia; i++){
-            roles.add(ROLE.Mafija);
+            roles.add(ROLE.Mafia);
             counter++;
         }
 
         for (int i=counter; i < numberOfMafia + numberOfPolice; i++){
-            roles.add(ROLE.Policininkas);
+            roles.add(ROLE.Police);
             counter++;
         }
 
         for (int i=counter; i < numberOfMafia + numberOfPolice + numberOfMedics; i++){
-            roles.add(ROLE.Sesele);
+            roles.add(ROLE.Medic);
             counter++;
         }
 
         for (int i=counter; i < numberOfMafia + numberOfPolice + numberOfMedics + numberOfPlastake;
              i++){
-            roles.add(ROLE.Plastake);
+            roles.add(ROLE.Butterfly);
             counter++;
         }
 
         for (int i=counter; i < numberOfMafia + numberOfPolice + numberOfMedics + numberOfPlastake
                 + numberOfWillagers; i++){
-            roles.add(ROLE.Miestietis);
+            roles.add(ROLE.Villager);
             counter++;
         }
 

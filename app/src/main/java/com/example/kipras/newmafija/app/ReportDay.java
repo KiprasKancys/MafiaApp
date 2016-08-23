@@ -49,7 +49,7 @@ public class ReportDay extends AppCompatActivity {
 
         for(int i = 0; i < players.size(); i++){
             if(players.get(i).isAlive()){
-                if(players.get(i).getRole().equals(ROLE.Mafija)){
+                if(players.get(i).getRole().equals(ROLE.Mafia)){
                     mafia++;
                 } else {
                     other++;

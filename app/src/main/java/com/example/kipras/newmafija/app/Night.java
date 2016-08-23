@@ -113,23 +113,23 @@ public class Night extends AppCompatActivity {
     private void activities(ROLE role, Player player) {
         switch (role)
         {
-            case Mafija:
+            case Mafia:
                 activity.setText(R.string.kill);
                 mafiaActivity(player);
                 break;
-            case Policininkas:
+            case Police:
                 activity.setText(R.string.investigate);
                 policeActivity(player);
                 break;
-            case Sesele:
+            case Medic:
                 activity.setText(R.string.heal);
                 medicActivity(role, player);
                 break;
-            case Plastake:
+            case Butterfly:
                 activity.setText(R.string.dingdong);
                 ButterflyActivity(player);
                 break;
-            case Miestietis:
+            case Villager:
                 activity.setText(R.string.next);
                 break;
         }
@@ -144,7 +144,7 @@ public class Night extends AppCompatActivity {
     }
 
     private void medicActivity(ROLE role, Player player) {
-        if (!(role.equals(ROLE.Sesele) && player.isMedicSelfHeal())){
+        if (!(role.equals(ROLE.Medic) && player.isMedicSelfHeal())){
             player.heal(true);
             player.medicSelfHeal(true);
         }
@@ -164,7 +164,7 @@ public class Night extends AppCompatActivity {
     }
 
     private void getShowPlayers(ROLE role, String name){
-        if (role.equals(ROLE.Sesele)){
+        if (role.equals(ROLE.Medic)){
             Medic medic = (Medic) players.get(cursor);
             if (!medic.isMedicHeal()){
                 for(int i = 0; i < players.size(); i++){

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -27,12 +28,14 @@ public class CreateGame extends AppCompatActivity {
         setContentView(R.layout.create_game_page);
 
         player = (EditText)findViewById(R.id.input);
+
         showPlayers =(ListView)findViewById(R.id.Players);
         addPlayer = (Button)findViewById(R.id.addPlayer);
         addPlayer.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+
                 String getInput = player.getText().toString();
 
                 if(players.contains(getInput)){

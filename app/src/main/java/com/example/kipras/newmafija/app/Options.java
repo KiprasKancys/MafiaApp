@@ -16,4 +16,8 @@ public class Options {
     public String getNumber(){
         return number;
     }
+
+    public void setNumber(int value){
+        this.number = String.valueOf(value);
+    }
 }
