@@ -10,4 +10,5 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/itemText" />
+
 </LinearLayout>

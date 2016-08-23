@@ -14,7 +14,7 @@
     <string name="kill">Kill</string>
     <string name="investigate">Investigate</string>
     <string name="heal">Heal</string>
-    <string name="dingdong">DingDong</string>
+    <string name="ding">DingDong</string>
 
     <string name="listOfPlayers">List of Players</string>
     <string name="yourRole">Your role is </string>

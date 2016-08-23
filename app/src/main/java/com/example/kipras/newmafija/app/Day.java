@@ -25,9 +25,6 @@ public class Day extends AppCompatActivity {
     ListView playersList;
     TextView name;
 
-
-    TextView justIncase;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

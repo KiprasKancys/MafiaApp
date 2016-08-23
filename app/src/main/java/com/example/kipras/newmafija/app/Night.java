@@ -126,7 +126,7 @@ public class Night extends AppCompatActivity {
                 medicActivity(role, player);
                 break;
             case Butterfly:
-                activity.setText(R.string.dingdong);
+                activity.setText(R.string.ding);
                 ButterflyActivity(player);
                 break;
             case Villager:
